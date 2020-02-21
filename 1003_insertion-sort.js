@@ -1,18 +1,19 @@
 var arr = [ 7, 5, 20, 2, 6 ];
 
 function insertionSort( arr ) {
-    var atual;
+    var valor_atual_temporario;
+    var tamanho_array = arr.length;
 
-    for ( var i = 1; i < arr.length; i++ ) {
-        var j = i - 1;
-        atual = arr[ i ];
+    for ( var externo = 1; externo < tamanho_array; externo++ ) {
+        var interno = externo - 1;
+        valor_atual_temporario = arr[ externo ];
 
-        while ( j >= 0 && atual < arr[ j ] ) {
-            arr[ j + 1 ] = arr[ j ];
-            j--;
+        while ( interno >= 0 && valor_atual_temporario < arr[ interno ] ) {
+            arr[ interno + 1 ] = arr[ interno ];
+            interno--;
         }
 
-        arr[ j + 1 ] = atual;
+        arr[ interno + 1 ] = valor_atual_temporario;
     }
 
     return arr;
